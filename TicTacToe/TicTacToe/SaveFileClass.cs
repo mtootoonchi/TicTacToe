@@ -11,6 +11,7 @@ namespace TicTacToe
         private char[,] TTT;
         private char letter;
         private int plays;
+        Random ran = new Random();
 
         private string Name;
         private string Vs;
@@ -54,9 +55,36 @@ namespace TicTacToe
             }
         }
 
-        public bool AIplays()
+        public int[] AIplays()
         {
-            return false;
+            int[] space=new int[2];
+            if(Dif.Equals("Easy"))
+            {
+                return DiffEasy(space);
+            }
+            else if(Dif.Equals("Impossible"))
+            {
+                return space;
+            }
+            else
+            {
+                return space;
+            }
+        }
+
+        public int[] DiffEasy(int[] space)
+        {
+            while (true)
+            {
+                int row = ran.Next(0, 3);
+                int col = ran.Next(0, 3);
+                if (place(row, col))
+                {
+                    space[0] = row;
+                    space[1] = col;
+                    return space;
+                }
+            }
         }
 
         public int WhoWins()

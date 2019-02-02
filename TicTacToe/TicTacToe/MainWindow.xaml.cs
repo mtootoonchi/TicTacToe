@@ -327,7 +327,7 @@ namespace TicTacToe
             {
                 MessageBox.Show("Please enter values.");
             }
-            else if(Player.Equals("AI"))
+            else if(Difficulty.Equals("Impossible"))
             {
                 MessageBox.Show("Not made yet.");
             }
@@ -419,6 +419,181 @@ namespace TicTacToe
             }
         }
 
+        private void AIPicked(int[] space)
+        {
+            letter = 'O';
+            if (space[0] == 0 && space[1] == 0)
+            {
+                Space1.Visibility = Visibility.Collapsed;
+                if (letter == 'X')
+                {
+                    X1.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    O1.Visibility = Visibility.Visible;
+                }
+            }
+            else if (space[0] == 0 && space[1] == 1)
+            {
+                Space2.Visibility = Visibility.Collapsed;
+                if (letter == 'X')
+                {
+                    X2.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    O2.Visibility = Visibility.Visible;
+                }
+            }
+            else if (space[0] == 0 && space[1] == 2)
+            {
+                Space3.Visibility = Visibility.Collapsed;
+                if (letter == 'X')
+                {
+                    X3.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    O3.Visibility = Visibility.Visible;
+                }
+            }
+            else if (space[0] == 1 && space[1] == 0)
+            {
+                Space4.Visibility = Visibility.Collapsed;
+                if (letter == 'X')
+                {
+                    X4.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    O4.Visibility = Visibility.Visible;
+                }
+            }
+            else if (space[0] == 1 && space[1] == 1)
+            {
+                Space5.Visibility = Visibility.Collapsed;
+                if (letter == 'X')
+                {
+                    X5.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    O5.Visibility = Visibility.Visible;
+                }
+            }
+            else if (space[0] == 1 && space[1] == 2)
+            {
+                Space6.Visibility = Visibility.Collapsed;
+                if (letter == 'X')
+                {
+                    X6.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    O6.Visibility = Visibility.Visible;
+                }
+            }
+            else if (space[0] == 2 && space[1] == 0)
+            {
+                Space7.Visibility = Visibility.Collapsed;
+                if (letter == 'X')
+                {
+                    X7.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    O7.Visibility = Visibility.Visible;
+                }
+            }
+            else if (space[0] == 2 && space[1] == 1)
+            {
+                Space1.Visibility = Visibility.Collapsed;
+                if (letter == 'X')
+                {
+                    X8.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    O8.Visibility = Visibility.Visible;
+                }
+            }
+            else
+            {
+                Space9.Visibility = Visibility.Collapsed;
+                if (letter == 'X')
+                {
+                    X9.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    O9.Visibility = Visibility.Visible;
+                }
+            }
+            if (SaveFileClick.WhoWins() == 2)
+            {
+                SaveFilesArr[SaveFileLocation][3] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][3]));
+                if (SaveFileLocation == 0)
+                {
+                    File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                }
+                if (SaveFileLocation == 1)
+                {
+                    File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                }
+                else
+                {
+                    File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                }
+                WipeGameBoard();
+                XWin.Visibility = Visibility.Visible;
+                Wins.Visibility = Visibility.Visible;
+                PlayAgain.Visibility = Visibility.Visible;
+                Exit.Visibility = Visibility.Visible;
+            }
+            else if (SaveFileClick.WhoWins() == 1)
+            {
+                SaveFilesArr[SaveFileLocation][4] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][4]));
+                if (SaveFileLocation == 0)
+                {
+                    File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                }
+                if (SaveFileLocation == 1)
+                {
+                    File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                }
+                else
+                {
+                    File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                }
+                WipeGameBoard();
+                OWin.Visibility = Visibility.Visible;
+                Wins.Visibility = Visibility.Visible;
+                PlayAgain.Visibility = Visibility.Visible;
+                Exit.Visibility = Visibility.Visible;
+            }
+            else if (SaveFileClick.getPlays())
+            {
+                SaveFilesArr[SaveFileLocation][5] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][5]));
+                if (SaveFileLocation == 0)
+                {
+                    File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                }
+                if (SaveFileLocation == 1)
+                {
+                    File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                }
+                else
+                {
+                    File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                }
+                WipeGameBoard();
+                Tie.Visibility = Visibility.Visible;
+                PlayAgain.Visibility = Visibility.Visible;
+                Exit.Visibility = Visibility.Visible;
+            }
+        }
+
         private void Space1_Click(object sender, RoutedEventArgs e)
         {
             letter = SaveFileClick.getLetter();
@@ -497,7 +672,7 @@ namespace TicTacToe
                 }
                 else if(SaveFilesArr[SaveFileLocation][1].Equals("AI"))
                 {
-                    SaveFileClick.AIplays();
+                    AIPicked(SaveFileClick.AIplays());
                 }
             }
         }
@@ -580,7 +755,7 @@ namespace TicTacToe
                 }
                 else if (SaveFilesArr[SaveFileLocation][1].Equals("AI"))
                 {
-                    SaveFileClick.AIplays();
+                    AIPicked(SaveFileClick.AIplays());
                 }
             }
         }
@@ -663,7 +838,7 @@ namespace TicTacToe
                 }
                 else if (SaveFilesArr[SaveFileLocation][1].Equals("AI"))
                 {
-                    SaveFileClick.AIplays();
+                    AIPicked(SaveFileClick.AIplays());
                 }
             }
         }
@@ -746,7 +921,7 @@ namespace TicTacToe
                 }
                 else if (SaveFilesArr[SaveFileLocation][1].Equals("AI"))
                 {
-                    SaveFileClick.AIplays();
+                    AIPicked(SaveFileClick.AIplays());
                 }
             }
         }
@@ -829,7 +1004,7 @@ namespace TicTacToe
                 }
                 else if (SaveFilesArr[SaveFileLocation][1].Equals("AI"))
                 {
-                    SaveFileClick.AIplays();
+                    AIPicked(SaveFileClick.AIplays());
                 }
             }
         }
@@ -912,7 +1087,7 @@ namespace TicTacToe
                 }
                 else if (SaveFilesArr[SaveFileLocation][1].Equals("AI"))
                 {
-                    SaveFileClick.AIplays();
+                    AIPicked(SaveFileClick.AIplays());
                 }
             }
         }
@@ -995,7 +1170,7 @@ namespace TicTacToe
                 }
                 else if (SaveFilesArr[SaveFileLocation][1].Equals("AI"))
                 {
-                    SaveFileClick.AIplays();
+                    AIPicked(SaveFileClick.AIplays());
                 }
             }
         }
@@ -1078,7 +1253,7 @@ namespace TicTacToe
                 }
                 else if (SaveFilesArr[SaveFileLocation][1].Equals("AI"))
                 {
-                    SaveFileClick.AIplays();
+                    AIPicked(SaveFileClick.AIplays());
                 }
             }
         }
@@ -1161,7 +1336,7 @@ namespace TicTacToe
                 }
                 else if (SaveFilesArr[SaveFileLocation][1].Equals("AI"))
                 {
-                    SaveFileClick.AIplays();
+                    AIPicked(SaveFileClick.AIplays());
                 }
             }
         }
