@@ -508,7 +508,7 @@ namespace TicTacToe
             }
             else if (space[0] == 2 && space[1] == 1)
             {
-                Space1.Visibility = Visibility.Collapsed;
+                Space7.Visibility = Visibility.Collapsed;
                 if (letter == 'X')
                 {
                     X8.Visibility = Visibility.Visible;
