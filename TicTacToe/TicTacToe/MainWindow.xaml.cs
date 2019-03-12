@@ -87,21 +87,21 @@ namespace TicTacToe
         private void SaveFile1Delete_Click(object sender, RoutedEventArgs e)
         {
             ClickTitle();
-            File.WriteAllLines("SaveFile1.txt", NewFiles);
+            File.WriteAllLines(@"SaveFiles\SaveFile1.txt", NewFiles);
             Start();
         }
 
         private void SaveFile2Delete_Click(object sender, RoutedEventArgs e)
         {
             ClickTitle();
-            File.WriteAllLines("SaveFile2.txt", NewFiles);
+            File.WriteAllLines(@"SaveFiles\SaveFile2.txt", NewFiles);
             Start();
         }
 
         private void SaveFile3Delete_Click(object sender, RoutedEventArgs e)
         {
             ClickTitle();
-            File.WriteAllLines("SaveFile3.txt", NewFiles);
+            File.WriteAllLines(@"SaveFiles\SaveFile3.txt", NewFiles);
             Start();
         }
 
@@ -124,20 +124,20 @@ namespace TicTacToe
 
         private void Start()
         {
-            if (!File.Exists("SaveFile1.txt"))
+            if (!File.Exists(@"SaveFiles\SaveFile1.txt"))
             {
                 MessageBox.Show("SaveFile1 missing creating new SaveFile1.");
-                File.WriteAllLines("SaveFile1.txt", NewFiles);
+                File.WriteAllLines(@"SaveFiles\SaveFile1.txt", NewFiles);
             }
-            if (!File.Exists("SaveFile2.txt"))
+            if (!File.Exists(@"SaveFiles\SaveFile2.txt"))
             {
                 MessageBox.Show("SaveFile2 missing creating new SaveFile2.");
-                File.WriteAllLines("SaveFile2.txt", NewFiles);
+                File.WriteAllLines(@"SaveFiles\SaveFile2.txt", NewFiles);
             }
-            if (!File.Exists("SaveFile3.txt"))
+            if (!File.Exists(@"SaveFiles\SaveFile3.txt"))
             {
                 MessageBox.Show("SaveFile3 missing creating new SaveFile3.");
-                File.WriteAllLines("SaveFile3.txt", NewFiles);
+                File.WriteAllLines(@"SaveFiles\SaveFile3.txt", NewFiles);
             }
             Title.Visibility = Visibility.Visible;
             SaveFile1Load.Visibility = Visibility.Visible;
@@ -192,26 +192,26 @@ namespace TicTacToe
             O8.Visibility = Visibility.Collapsed;
             O9.Visibility = Visibility.Collapsed;
             Tie.Visibility = Visibility.Collapsed;
-            SaveFilesArr[0] = File.ReadAllLines("SaveFile1.txt");
-            SaveFilesArr[1] = File.ReadAllLines("SaveFile2.txt");
-            SaveFilesArr[2] = File.ReadAllLines("SaveFile3.txt");
+            SaveFilesArr[0] = File.ReadAllLines(@"SaveFiles\SaveFile1.txt");
+            SaveFilesArr[1] = File.ReadAllLines(@"SaveFiles\SaveFile2.txt");
+            SaveFilesArr[2] = File.ReadAllLines(@"SaveFiles\SaveFile3.txt");
             if (IsDataCorruption(SaveFilesArr[0]))
             {
                 MessageBox.Show("SaveFile1 corrupted creating new SaveFile1.");
-                File.WriteAllLines("SaveFile1.txt", NewFiles);
-                SaveFilesArr[0] = File.ReadAllLines("SaveFile1.txt");
+                File.WriteAllLines(@"SaveFiles\SaveFile1.txt", NewFiles);
+                SaveFilesArr[0] = File.ReadAllLines(@"SaveFiles\SaveFile1.txt");
             }
             if (IsDataCorruption(SaveFilesArr[1]))
             {
                 MessageBox.Show("SaveFile2 corrupted creating new SaveFile2.");
-                File.WriteAllLines("SaveFile2.txt", NewFiles);
-                SaveFilesArr[1] = File.ReadAllLines("SaveFile2.txt");
+                File.WriteAllLines(@"SaveFiles\SaveFile2.txt", NewFiles);
+                SaveFilesArr[1] = File.ReadAllLines(@"SaveFiles\SaveFile2.txt");
             }
             if (IsDataCorruption(SaveFilesArr[2]))
             {
                 MessageBox.Show("SaveFile3 corrupted creating new SaveFile3.");
-                File.WriteAllLines("SaveFile3.txt", NewFiles);
-                SaveFilesArr[2] = File.ReadAllLines("SaveFile3.txt");
+                File.WriteAllLines(@"SaveFiles\SaveFile3.txt", NewFiles);
+                SaveFilesArr[2] = File.ReadAllLines(@"SaveFiles\SaveFile3.txt");
             }
             SaveFile1.Content = "";
             SaveFile2.Content = "";
@@ -535,15 +535,15 @@ namespace TicTacToe
                 SaveFilesArr[SaveFileLocation][3] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][3]));
                 if (SaveFileLocation == 0)
                 {
-                    File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                    File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                 }
                 if (SaveFileLocation == 1)
                 {
-                    File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                    File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                 }
                 else
                 {
-                    File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                    File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                 }
                 WipeGameBoard();
                 XWin.Visibility = Visibility.Visible;
@@ -556,15 +556,15 @@ namespace TicTacToe
                 SaveFilesArr[SaveFileLocation][4] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][4]));
                 if (SaveFileLocation == 0)
                 {
-                    File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                    File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                 }
                 if (SaveFileLocation == 1)
                 {
-                    File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                    File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                 }
                 else
                 {
-                    File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                    File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                 }
                 WipeGameBoard();
                 OWin.Visibility = Visibility.Visible;
@@ -577,15 +577,15 @@ namespace TicTacToe
                 SaveFilesArr[SaveFileLocation][5] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][5]));
                 if (SaveFileLocation == 0)
                 {
-                    File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                    File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                 }
                 if (SaveFileLocation == 1)
                 {
-                    File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                    File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                 }
                 else
                 {
-                    File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                    File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                 }
                 WipeGameBoard();
                 Tie.Visibility = Visibility.Visible;
@@ -613,15 +613,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][3] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][3]));
                     if(SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     XWin.Visibility = Visibility.Visible;
@@ -634,15 +634,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][4] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][4]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     OWin.Visibility = Visibility.Visible;
@@ -655,15 +655,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][5] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][5]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     Tie.Visibility = Visibility.Visible;
@@ -696,15 +696,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][3] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][3]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     XWin.Visibility = Visibility.Visible;
@@ -717,15 +717,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][4] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][4]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     OWin.Visibility = Visibility.Visible;
@@ -738,15 +738,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][5] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][5]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     Tie.Visibility = Visibility.Visible;
@@ -779,15 +779,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][3] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][3]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     XWin.Visibility = Visibility.Visible;
@@ -800,15 +800,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][4] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][4]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     OWin.Visibility = Visibility.Visible;
@@ -821,15 +821,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][5] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][5]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     Tie.Visibility = Visibility.Visible;
@@ -862,15 +862,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][3] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][3]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     XWin.Visibility = Visibility.Visible;
@@ -883,15 +883,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][4] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][4]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     OWin.Visibility = Visibility.Visible;
@@ -904,15 +904,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][5] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][5]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     Tie.Visibility = Visibility.Visible;
@@ -945,15 +945,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][3] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][3]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     XWin.Visibility = Visibility.Visible;
@@ -966,15 +966,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][4] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][4]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     OWin.Visibility = Visibility.Visible;
@@ -987,15 +987,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][5] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][5]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     Tie.Visibility = Visibility.Visible;
@@ -1028,15 +1028,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][3] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][3]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     XWin.Visibility = Visibility.Visible;
@@ -1049,15 +1049,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][4] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][4]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     OWin.Visibility = Visibility.Visible;
@@ -1070,15 +1070,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][5] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][5]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     Tie.Visibility = Visibility.Visible;
@@ -1111,15 +1111,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][3] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][3]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     XWin.Visibility = Visibility.Visible;
@@ -1132,15 +1132,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][4] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][4]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     OWin.Visibility = Visibility.Visible;
@@ -1153,15 +1153,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][5] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][5]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     Tie.Visibility = Visibility.Visible;
@@ -1194,15 +1194,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][3] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][3]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     XWin.Visibility = Visibility.Visible;
@@ -1215,15 +1215,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][4] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][4]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     OWin.Visibility = Visibility.Visible;
@@ -1236,15 +1236,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][5] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][5]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     Tie.Visibility = Visibility.Visible;
@@ -1277,15 +1277,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][3] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][3]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     XWin.Visibility = Visibility.Visible;
@@ -1298,15 +1298,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][4] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][4]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     OWin.Visibility = Visibility.Visible;
@@ -1319,15 +1319,15 @@ namespace TicTacToe
                     SaveFilesArr[SaveFileLocation][5] = "" + (1 + Convert.ToUInt32(SaveFilesArr[SaveFileLocation][5]));
                     if (SaveFileLocation == 0)
                     {
-                        File.WriteAllLines("SaveFile1.txt", SaveFilesArr[0]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile1.txt", SaveFilesArr[0]);
                     }
                     if (SaveFileLocation == 1)
                     {
-                        File.WriteAllLines("SaveFile2.txt", SaveFilesArr[1]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile2.txt", SaveFilesArr[1]);
                     }
                     else
                     {
-                        File.WriteAllLines("SaveFile3.txt", SaveFilesArr[2]);
+                        File.WriteAllLines(@"SaveFiles\SaveFile3.txt", SaveFilesArr[2]);
                     }
                     WipeGameBoard();
                     Tie.Visibility = Visibility.Visible;
