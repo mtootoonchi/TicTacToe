@@ -30,6 +30,7 @@ namespace TicTacToe
         SaveFileClass SaveFileClick = null;
         int SaveFileLocation = 0;
         char letter = 'X';
+
         public MainWindow()
         {
             InitializeComponent();
@@ -41,26 +42,56 @@ namespace TicTacToe
 
         private void SaveFile1Load_Click(object sender, RoutedEventArgs e)
         {
-            ClickTitle();
-            SaveFileClick = new SaveFileClass(SaveFilesArr[0]);
-            GameBoard();
-            SaveFileLocation = 0;
+            if (CheckIfNewSaveFile(SaveFilesArr[0]))
+            {
+                MessageBox.Show("There is no SaveFile here, please click \"New\".");
+            }
+            else
+            {
+                ClickTitle();
+                SaveFileClick = new SaveFileClass(SaveFilesArr[0]);
+                GameBoard();
+                SaveFileLocation = 0;
+            }
         }
 
         private void SaveFile2Load_Click(object sender, RoutedEventArgs e)
-        { 
-            ClickTitle();
-            SaveFileClick = new SaveFileClass(SaveFilesArr[1]);
-            GameBoard();
-            SaveFileLocation = 1;
+        {
+            if (CheckIfNewSaveFile(SaveFilesArr[1]))
+            {
+                MessageBox.Show("There is no SaveFile here, please click \"New\".");
+            }
+            else
+            {
+                ClickTitle();
+                SaveFileClick = new SaveFileClass(SaveFilesArr[1]);
+                GameBoard();
+                SaveFileLocation = 1;
+            }
         }
 
         private void SaveFile3Load_Click(object sender, RoutedEventArgs e)
         {
-            ClickTitle();
-            SaveFileClick = new SaveFileClass(SaveFilesArr[2]);
-            GameBoard();
-            SaveFileLocation = 2;
+            if (CheckIfNewSaveFile(SaveFilesArr[2]))
+            {
+                MessageBox.Show("There is no SaveFile here, please click \"New\".");
+            }
+            else
+            {
+                ClickTitle();
+                SaveFileClick = new SaveFileClass(SaveFilesArr[2]);
+                GameBoard();
+                SaveFileLocation = 2;
+            }
+        }
+
+        private bool CheckIfNewSaveFile(string[] a)
+        {
+            if(a[0].Equals("N/A") && a[1].Equals("N/A") && a[2].Equals("N/A") && a[3].Equals("N/A") && a[4].Equals("N/A") && a[5].Equals("N/A"))
+            {
+                return true;
+            }
+            return false;
         }
 
         private void SaveFile1New_Click(object sender, RoutedEventArgs e)

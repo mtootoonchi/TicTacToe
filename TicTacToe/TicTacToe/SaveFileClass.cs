@@ -86,7 +86,38 @@ namespace TicTacToe
                 }
             }
         }
-
+        /*
+        public int[] DiffImpossible(int[] space)
+        {
+            int a = 0;
+            int b = 0;
+            if (TTT[0, 0] == '\0' && TTT[0, 1] == '\0' && TTT[0, 2] == '\0' && TTT[1, 0] == '\0' && TTT[1, 1] == 'X' && TTT[1, 2] == '\0' && TTT[2, 0] == '\0' && TTT[2, 1] == '\0' && TTT[2, 2] == '\0')
+            {
+                a = ran.Next(0, 3);
+                b = ran.Next(0, 3);
+                if(a == 1 || b == 1)
+                {
+                    DiffImpossible(space);
+                }
+                space[0] = a;
+                space[1] = b;
+                return space;
+            }
+            else if (TTT[0, 0] == '\0' && TTT[0, 1] == '\0' && TTT[0, 2] == '\0' && TTT[1, 0] == '\0' && TTT[1, 1] == 'X' && TTT[1, 2] == '\0' && TTT[2, 0] == '\0' && TTT[2, 1] == '\0' && TTT[2, 2] == '\0')
+            {
+                a = ran.Next(0, 3);
+                b = ran.Next(0, 3);
+                if (a == 1 || b == 1)
+                {
+                    DiffImpossible(space);
+                }
+                space[0] = a;
+                space[1] = b;
+                return space;
+            }
+            else
+        }
+        */
         public int WhoWins()
         {
             if (((TTT[0, 0] == 'X') && (TTT[1, 1] == 'X') && (TTT[2, 2] == 'X')) || ((TTT[2, 0] == 'X') && (TTT[1, 1] == 'X') && (TTT[0, 2] == 'X')) || ((TTT[0, 0] == 'X') && (TTT[0, 1] == 'X') && (TTT[0, 2] == 'X')) || ((TTT[1, 0] == 'X') && (TTT[1, 1] == 'X') && (TTT[1, 2] == 'X')) || ((TTT[2, 0] == 'X') && (TTT[2, 1] == 'X') && (TTT[2, 2] == 'X')) || ((TTT[0, 0] == 'X') && (TTT[1, 0] == 'X') && (TTT[2, 0] == 'X')) || ((TTT[0, 1] == 'X') && (TTT[1, 1] == 'X') && (TTT[2, 1] == 'X')) || ((TTT[0, 2] == 'X') && (TTT[1, 2] == 'X') && (TTT[2, 2] == 'X')))
