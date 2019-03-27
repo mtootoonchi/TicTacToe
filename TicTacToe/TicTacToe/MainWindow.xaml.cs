@@ -371,6 +371,7 @@ namespace TicTacToe
                 string[] stuff = { SaveFileName.Text, Player, Difficulty, "0", "0", "0" };
                 Difficulty = "N/A";
                 PlayerName.Content = "N/A";
+                SaveFileName.Text = "Save File #";
                 SaveFilesArr[SaveFileLocation] = stuff;
                 SaveFileClick = new SaveFileClass(stuff);
                 LabelName.Visibility = Visibility.Collapsed;
@@ -395,6 +396,7 @@ namespace TicTacToe
             DifficultyName.Content = "N/A";
             Difficulty = "N/A";
             PlayerName.Content = "N/A";
+            SaveFileName.Text = "Save File #";
             LabelName.Visibility = Visibility.Collapsed;
             LabelPlayer.Visibility = Visibility.Collapsed;
             LabelDifficulty.Visibility = Visibility.Collapsed;
