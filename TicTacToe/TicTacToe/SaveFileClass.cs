@@ -91,6 +91,8 @@ namespace TicTacToe
         {
             int a = 0;
             int b = 0;
+            int c = 0;
+            // if user puts 'X' in the middle AI will put 'O' in the cornors
             if (TTT[0, 0] == '\0' && TTT[0, 1] == '\0' && TTT[0, 2] == '\0' && TTT[1, 0] == '\0' && TTT[1, 1] == 'X' && TTT[1, 2] == '\0' && TTT[2, 0] == '\0' && TTT[2, 1] == '\0' && TTT[2, 2] == '\0')
             {
                 a = ran.Next(0, 3);
@@ -103,19 +105,66 @@ namespace TicTacToe
                 space[1] = b;
                 return space;
             }
-            else if (TTT[0, 0] == '\0' && TTT[0, 1] == '\0' && TTT[0, 2] == '\0' && TTT[1, 0] == '\0' && TTT[1, 1] == 'X' && TTT[1, 2] == '\0' && TTT[2, 0] == '\0' && TTT[2, 1] == '\0' && TTT[2, 2] == '\0')
+            // 
+            else if (TTT[0, 0] == 'O' || TTT[0, 2] == 'O' || TTT[2, 0] == 'O' || TTT[2, 2] == 'O' && TTT[0, 1] == '\0' && TTT[1, 0] == '\0' && TTT[1, 1] == 'X' && TTT[1, 2] == '\0' && TTT[2, 1] == '\0')
             {
-                a = ran.Next(0, 3);
-                b = ran.Next(0, 3);
-                if (a == 1 || b == 1)
+                c = ran.Next(0, 2);
+                if(c==0) //cw
                 {
-                    DiffImpossible(space);
+                    if(TTT[0, 0] == 'O')
+                    {
+                        space[0] = 0;
+                        space[1] = 1;
+                        return space;
+                    }
+                    else if(TTT[0, 2] == 'O')
+                    {
+                        space[0] = 1;
+                        space[1] = 2;
+                        return space;
+                    }
+                    else if (TTT[2, 0] == 'O')
+                    {
+                        space[0] = 1;
+                        space[1] = 0;
+                        return space;
+                    }
+                    else
+                    {
+                        space[0] = 2;
+                        space[1] = 1;
+                        return space;
+                    }
                 }
-                space[0] = a;
-                space[1] = b;
-                return space;
+                else //ccw
+                {
+                    if (TTT[0, 0] == 'O')
+                    {
+                        space[0] = 1;
+                        space[1] = 0;
+                        return space;
+                    }
+                    else if (TTT[0, 2] == 'O')
+                    {
+                        space[0] = 2;
+                        space[1] = 1;
+                        return space;
+                    }
+                    else if (TTT[2, 0] == 'O')
+                    {
+                        space[0] = 0;
+                        space[1] = 1;
+                        return space;
+                    }
+                    else
+                    {
+                        space[0] = 1;
+                        space[1] = 2;
+                        return space;
+                    }
+                }
             }
-            else
+            else if ()
         }
         */
         public int WhoWins()

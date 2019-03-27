@@ -354,7 +354,7 @@ namespace TicTacToe
 
         private void ButtonCreateFile_Click(object sender, RoutedEventArgs e)
         {
-            if(SaveFileName.Text.Equals("") || PlayerName.Equals("N/A") || Player.Equals("AI") && Difficulty.Equals("N/A"))
+            if(SaveFileName.Text.Equals("") || PlayerName.Content.Equals("N/A") || Player.Equals("AI") && Difficulty.Equals("N/A"))
             {
                 MessageBox.Show("Please enter values.");
             }
@@ -364,7 +364,10 @@ namespace TicTacToe
             }
             else
             {
+                DifficultyName.Content = "N/A";
                 string[] stuff = { SaveFileName.Text, Player, Difficulty, "0", "0", "0" };
+                Difficulty = "N/A";
+                PlayerName.Content = "N/A";
                 SaveFilesArr[SaveFileLocation] = stuff;
                 SaveFileClick = new SaveFileClass(stuff);
                 LabelName.Visibility = Visibility.Collapsed;
