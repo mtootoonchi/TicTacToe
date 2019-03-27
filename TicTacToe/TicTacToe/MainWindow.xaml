@@ -69,5 +69,6 @@
         <Image x:Name="OWin" Margin="255,113,447.6,231" Source="Image13.png" Stretch="Fill" Visibility="Collapsed"/>
         <Label x:Name="Tie" Content="It's a Tie!" HorizontalAlignment="Left" Height="203" Margin="230,95,0,0" VerticalAlignment="Top" Width="289" FontSize="72" Visibility="Collapsed"/>
         <Label x:Name="Scoreboard" Content="" HorizontalAlignment="Left" Height="80" Margin="109,10,0,0" VerticalAlignment="Top" Width="569" FontSize="24" TextInput="Scoreboard_TextInput"/>
+        <Button x:Name="GoBack" Content="Back" HorizontalAlignment="Left" Height="76" Margin="70,320,0,0" VerticalAlignment="Top" Width="167" FontSize="48" Click="GoBack_Click" Visibility="Collapsed"/>
     </Grid>
 </Window>

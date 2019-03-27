@@ -98,7 +98,8 @@ namespace TicTacToe
         {
             ClickTitle();
             CreatingFile();
-            SaveFileLocation = 0;    
+            SaveFileLocation = 0;
+            GoBack.Visibility = Visibility.Visible;
         }
 
         private void SaveFile2New_Click(object sender, RoutedEventArgs e)
@@ -106,6 +107,7 @@ namespace TicTacToe
             ClickTitle();
             CreatingFile();
             SaveFileLocation = 1;
+            GoBack.Visibility = Visibility.Visible;
         }
 
         private void SaveFile3New_Click(object sender, RoutedEventArgs e)
@@ -113,6 +115,7 @@ namespace TicTacToe
             ClickTitle();
             CreatingFile();
             SaveFileLocation = 2;
+            GoBack.Visibility = Visibility.Visible;
         }
 
         private void SaveFile1Delete_Click(object sender, RoutedEventArgs e)
@@ -381,9 +384,30 @@ namespace TicTacToe
                 SaveFileName.Visibility = Visibility.Collapsed;
                 PlayerName.Visibility = Visibility.Collapsed;
                 DifficultyName.Visibility = Visibility.Collapsed;
+                GoBack.Visibility = Visibility.Collapsed;
                 TicTacToeBoard.Visibility = Visibility.Visible;
                 GameBoard();
             }
+        }
+
+        private void GoBack_Click(object sender, RoutedEventArgs e)
+        {
+            DifficultyName.Content = "N/A";
+            Difficulty = "N/A";
+            PlayerName.Content = "N/A";
+            LabelName.Visibility = Visibility.Collapsed;
+            LabelPlayer.Visibility = Visibility.Collapsed;
+            LabelDifficulty.Visibility = Visibility.Collapsed;
+            ButtonAI.Visibility = Visibility.Collapsed;
+            ButtonHuman.Visibility = Visibility.Collapsed;
+            ButtonImpossible.Visibility = Visibility.Collapsed;
+            ButtonEasy.Visibility = Visibility.Collapsed;
+            ButtonCreateFile.Visibility = Visibility.Collapsed;
+            SaveFileName.Visibility = Visibility.Collapsed;
+            PlayerName.Visibility = Visibility.Collapsed;
+            DifficultyName.Visibility = Visibility.Collapsed;
+            GoBack.Visibility = Visibility.Collapsed;
+            Start();
         }
 
         private void GameBoard()
@@ -1489,5 +1513,7 @@ namespace TicTacToe
         {
 
         }
+
+        
     }
 }
