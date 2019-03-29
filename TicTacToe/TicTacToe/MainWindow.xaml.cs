@@ -198,6 +198,7 @@ namespace TicTacToe
             SaveFileName.Visibility = Visibility.Collapsed;
             PlayerName.Visibility = Visibility.Collapsed;
             DifficultyName.Visibility = Visibility.Collapsed;
+            GoBack.Visibility = Visibility.Collapsed;
             Space1.Visibility = Visibility.Collapsed;
             Space2.Visibility = Visibility.Collapsed;
             Space3.Visibility = Visibility.Collapsed;
