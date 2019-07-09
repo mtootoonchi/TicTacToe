@@ -1,5 +1,5 @@
 # TicTacToe
-This Project will be using C# with its GUI stuff (AI on Impossible mode not Working)
+This Project will be using C# with its GUI stuff and a working unbeatable AI.
 The folder TicTacToe was made with Visual Studio 2017 and contains the code for this project.
 The folder TicTacToe App is the .exe folder with the SaveFiles.
 If you want to play TicTacToe with friends follow these instuctions.
