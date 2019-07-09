@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TicTacToeAI2;
 
 namespace TicTacToe
 {
@@ -12,6 +13,8 @@ namespace TicTacToe
         private char letter;
         private int plays;
         Random ran = new Random();
+        Tree tree;
+        short a = 0;
 
         private string Name;
         private string Vs;
@@ -29,6 +32,13 @@ namespace TicTacToe
             Loses = Convert.ToUInt32(Data[4]);
             Ties = Convert.ToUInt32(Data[5]);
             TTT = new char[3, 3];
+            for (short i = 0; i < 3; i++) 
+            {
+                for (short j = 0; j < 3; j++) 
+                {
+                    TTT[i, j] = '-';
+                }
+            }
             letter = 'X';
             plays = 0;
         }
@@ -64,7 +74,26 @@ namespace TicTacToe
             }
             else if(Dif.Equals("Impossible"))
             {
-                return space;
+                if (a == 0) 
+                {
+                    a++;
+                    tree = new Tree();
+                    tree.updateCurrentNode(TTT);
+                    Location temp = tree.getPlay();
+                    place(temp.getRow(), temp.getCol());
+                    space[0] = temp.getRow();
+                    space[1] = temp.getCol();
+                    return space;
+                }
+                else
+                {
+                    tree.updateCurrentNode(TTT);
+                    Location temp = tree.getPlay();
+                    place(temp.getRow(), temp.getCol());
+                    space[0] = temp.getRow();
+                    space[1] = temp.getCol();
+                    return space;
+                }
             }
             else
             {

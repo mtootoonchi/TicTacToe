@@ -362,10 +362,10 @@ namespace TicTacToe
             {
                 MessageBox.Show("Please enter values.");
             }
-            else if(Difficulty.Equals("Impossible"))
-            {
-                MessageBox.Show("Not made yet.");
-            }
+            //else if(Difficulty.Equals("Impossible"))
+            //{
+            //    MessageBox.Show("Not made yet.");
+            //}
             else
             {
                 DifficultyName.Content = "N/A";
